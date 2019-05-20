@@ -1,0 +1,33 @@
+nav{
+  .hamburger{ 
+    position: relative;
+    height: 40px;
+    width: 60px;
+    background: none;
+    border: none;
+    padding: 0;
+    &__line{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      border-radius: 20px;
+      background: #eaeaea;
+      transform: scaleX(1) rotate(0) translateY(-150%);
+      transition: .3s transform ease-in-out;
+      transform-origin: 50%;
+    }
+    &__line--short{
+      transform: scaleX(0.6) translateY(150%)  translateX(30%) rotate(0);
+    }
+  }
+  .hamburger--active{
+    .hamburger__line{
+      transform: scale(0.5) translateY(0) translateX(30%) rotate(45deg);
+    }
+    .hamburger__line--short{
+      transform: scale(0.5) translateY(0) translateX(30%) rotate(-45deg);
+    }
+  }
+}
