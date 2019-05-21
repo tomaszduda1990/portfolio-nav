@@ -12,3 +12,11 @@ nav {
  align-items: center;
  padding: 0 45px;
 }
+
+@media screen and (min-width: 1200px){
+  nav{
+    width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
