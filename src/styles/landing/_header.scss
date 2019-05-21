@@ -1,0 +1,13 @@
+.landing{
+  
+  &__header{
+    flex: 1;
+    height: 100%;
+    background: black;
+    color: #eaeaea;
+    .header-small{}
+    .header-hello{} 
+    .header-pos{}
+    .header-name{}
+  }
+}
