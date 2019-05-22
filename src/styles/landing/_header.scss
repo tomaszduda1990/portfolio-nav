@@ -3,7 +3,6 @@
   &__header{
     flex: 1;
     width: 100%;
-    background: black;
     color: #eaeaea;
     display: flex;
     flex-direction: column;
@@ -28,6 +27,7 @@
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 2px;
+      width: 230px;
       &:after{
         content: '';
         position: absolute;
