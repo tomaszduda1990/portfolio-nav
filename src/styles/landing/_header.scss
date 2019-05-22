@@ -2,12 +2,31 @@
   
   &__header{
     flex: 1;
-    height: 100%;
+    width: 100%;
     background: black;
     color: #eaeaea;
-    .header-small{}
-    .header-hello{} 
-    .header-pos{}
-    .header-name{}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &>*{
+      transform: translateY(-45px);
+    }
+    .header-small{
+      font-size: 18px;
+      margin: 0;
+    }
+    .header-hello{
+      font-weight: bold;
+    } 
+    .header-pos{
+      text-transform: uppercase;
+    }
+    .header-name{
+      display: inline-block;
+      font-size: 50px;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
   }
 }
