@@ -23,10 +23,23 @@
     }
     .header-name{
       display: inline-block;
+      position: relative;
       font-size: 50px;
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 2px;
+      &:after{
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 80%;
+        top: 0;
+        right: 0;
+        transform: translateY(-40%);
+        // change this red to something nicer
+        background: red;
+        z-index: -1;
+      }
     }
   }
 }
