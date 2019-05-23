@@ -16,6 +16,8 @@
     }
     .header-hello{
       font-weight: bold;
+      display: flex;
+      align-items: center;
     } 
     .header-pos{
       text-transform: uppercase;
