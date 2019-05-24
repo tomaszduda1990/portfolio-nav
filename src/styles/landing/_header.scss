@@ -45,3 +45,46 @@
     }
   }
 }
+
+@media screen and(min-width: 550px){
+  .landing{
+    &__header{
+      .header-small{
+        letter-spacing: 2px;
+      } 
+      .header-name{
+        font-size: 80px;
+        width: 375px;
+        letter-spacing: 4px;
+      }
+    }
+  }
+}
+@media screen and(min-width: 650px){
+  .landing{
+    &__header{
+      .header-small{
+        letter-spacing: 3px;
+      } 
+      .header-name{
+        font-size: 90px;
+        width: 425px;
+        letter-spacing: 6px;
+      }
+    }
+  }
+}
+@media screen and(min-width: 750px){
+  .landing{
+    &__header{
+      .header-small{
+        letter-spacing: 2px;
+      } 
+      .header-name{
+        font-size: 80px;
+        width: 375px;
+        letter-spacing: 4px;
+      }
+    }
+  }
+}

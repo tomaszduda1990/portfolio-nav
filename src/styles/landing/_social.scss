@@ -31,3 +31,13 @@
     }
   }
 }
+
+@media screen and (min-width: 650px){
+  .landing{
+    .social-icons{
+      li{
+        margin: 10px 0;
+      }
+    }
+  }
+}
