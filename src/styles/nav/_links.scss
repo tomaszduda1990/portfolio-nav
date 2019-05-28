@@ -1,5 +1,5 @@
-nav{
-  .links{
+nav {
+  .links {
     position: absolute;
     top: 100%;
     left: 0;
@@ -13,27 +13,27 @@ nav{
     list-style: none;
     display: flex;
     flex-direction: column;
-    li{
+    li {
       flex: 1;
-      display:flex;
+      display: flex;
       justify-content: center;
       align-items: center;
       transform: translateX(-100%);
-      transition: transform cubic-bezier(.82,-0.42,.34,1.42) 0.4s;
+      transition: transform cubic-bezier(0.82, -0.42, 0.34, 1.42) 0.4s;
       transition-delay: 0s;
-      &:nth-child(2){
-        transition-delay: .06s;
+      &:nth-child(2) {
+        transition-delay: 0.06s;
       }
-      &:nth-child(3){
-        transition-delay: .12s;
+      &:nth-child(3) {
+        transition-delay: 0.12s;
       }
-      &:nth-child(4){
-        transition-delay: .18s;
+      &:nth-child(4) {
+        transition-delay: 0.18s;
       }
-      &:nth-child(5){
-        transition-delay: .24s;
+      &:nth-child(5) {
+        transition-delay: 0.24s;
       }
-      a{
+      a {
         color: #eaeaea;
         text-decoration: none;
         font-style: italic;
@@ -42,29 +42,30 @@ nav{
         letter-spacing: 3px;
       }
     }
-   }
-   .links--active{
-     transform: translateX(0);
-     li{
-       transform: translateX(0);
-     }
-   }
+  }
+  .links--active {
+    transform: translateX(0);
+    li {
+      transform: translateX(0);
+    }
+  }
 }
 
-@media screen and (min-width: 900px){
-  nav{
-    .links{
+@media screen and (min-width: 900px) {
+  nav {
+    .links {
       position: static;
       flex: 1;
       flex-direction: row;
       height: 100%;
       transform: translateY(0);
       padding-left: 200px;
-      li{
+      background: none;
+      li {
         justify-content: space-between;
         transform: translateY(-100%);
         text-align: center;
-        a{
+        a {
           display: inline-block;
           font-size: 14px;
           letter-spacing: 1px;
@@ -72,8 +73,8 @@ nav{
         }
       }
     }
-    .links--active{
-      li{
+    .links--active {
+      li {
         transform: translateY(0);
       }
     }
