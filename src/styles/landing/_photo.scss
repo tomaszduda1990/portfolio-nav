@@ -42,43 +42,43 @@
     opacity: 0;
   }
   10%{
-    transform: translate(-10px, 0) scale(1);
+    transform: translate(-10%, 0) scale(1);
     opacity: 0.2;
   }
   20%{
-    transform: translate(25px, 0) scale(1.1);
+    transform: translate(25%, 0) scale(1.1);
     opacity: 0.1;
   }
   30%{
-    transform: translate(-25px, 0) scale(0.95);
+    transform: translate(-25%, 0) scale(0.95);
     opacity: 0.2;
   }
   40%{
-    transform: translate(100px, 0) scale(1);
+    transform: translate(100%, 0) scale(1);
     opacity: 0.1;
   }
   50%{
-    transform: translate(5px, 0) scale(1.1);
+    transform: translate(5%, 0) scale(1.1);
     opacity: 0.3;
   }
   60%{
-    transform: translate(0px, 0px) scale(1);
+    transform: translate(0%, 0px) scale(1);
     opacity: 0.2;
   }
   70%{
-    transform: translate(2px, 0) scale(0.5);
+    transform: translate(2%, 0) scale(0.5);
     opacity: 0.1;
   }
   80%{
-    transform: translate(-100px, 0) scale(1.04);
+    transform: translate(-18%, 0) scale(1.04);
     opacity: 0.1;
   }
   90%{
-    transform: translate(-51px, -20px) scale(1);
+    transform: translate(51%, -20px) scale(1);
     opacity: 0.2;
   }
   100%{
-    transform: translate(30px, -25px) scale(1.25);
+    transform: translate(30%, -25px) scale(1.25);
     opacity: 0;
   }
 }
