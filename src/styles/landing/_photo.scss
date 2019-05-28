@@ -28,6 +28,9 @@
       &:hover::after{
         animation: photoGlitch .3s linear infinite;
       }
+      // &:hover::before{
+      //   animation: photoGlitch .5s linear infinite;
+      // }
     }
   }
 }
