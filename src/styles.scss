@@ -1,5 +1,6 @@
 @import "./styles/nav/nav";
 @import "./styles/landing/landing";
+@import "./styles/about-me/about-me";
 
 * {
   box-sizing: border-box;
@@ -14,4 +15,8 @@ body {
   margin: 0;
   background: #252525;
   overflow-x: hidden;
+}
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }

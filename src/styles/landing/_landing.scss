@@ -5,10 +5,12 @@
 .landing{
   width: 100%;
   height: calc(100vh - 90px);
+  min-height: 550px;
   padding: 0 45px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .redLine{
