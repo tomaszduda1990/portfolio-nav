@@ -50,7 +50,7 @@
 .landing--inactive{
   .header-name{
     &:after{
-      animation: headerTransition 1s cubic-bezier(1,-0.42,.33,1.07) forwards;
+      animation: headerTransition 1s cubic-bezier(.65,-0.27,.33,.68) forwards;
     }
   }
 }
@@ -103,6 +103,6 @@
     transform: translateY(-40%) scaleY(0.7) scaleX(0.6);
   }
   100%{
-    transform: translateY(-40%) scaleY(0.7) scaleX(0.01);
+    transform: translateY(-40%) scaleY(0.7) scaleX(0);
   }
 }
