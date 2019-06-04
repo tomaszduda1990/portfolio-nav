@@ -7,12 +7,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: translateY(-45px);
     z-index: 2;
-    &>*{
-      transform: translateY(-45px);
-    }
+    
     .header-small{
       font-size: 18px;
+      opacity: 1;
+      transition: opacity ease-in-out 0.4s;
       margin: 0;
     }
     .header-hello{
@@ -46,6 +47,7 @@
         z-index: -1;
       }
       .header-letter{
+        display: inline-block;
         transform: translateX(0) translateY(0);
         opacity: 1;
         transition: all .7s cubic-bezier(.65,-0.27,.33,.68);
