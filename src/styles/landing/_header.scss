@@ -40,9 +40,31 @@
         right: 0;
         transform: translateY(-40%) scaleX(0.6) scaleY(0.7);
         transform-origin: 100%;
+        transition: transform 1s cubic-bezier(.65,-0.27,.33,.68);
         // change this red to something nicer
         background: red;
         z-index: -1;
+      }
+      .header-letter{
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+        transition: all .7s cubic-bezier(.65,-0.27,.33,.68);
+        transition-delay: 0s;
+        &:nth-child(2){
+          transition-delay: 0.15s;
+        }
+        &:nth-child(3){
+          transition-delay: 0.2s;
+        }
+        &:nth-child(4){
+          transition-delay: 0.25s;
+        }
+        &:nth-child(5){
+          transition-delay: 0.3s;
+        }
+        &:nth-child(6){
+          transition-delay: 0.35s;
+        }
       }
     }
   }
@@ -50,7 +72,11 @@
 .landing--inactive{
   .header-name{
     &:after{
-      animation: headerTransition 1s cubic-bezier(.65,-0.27,.33,.68) forwards;
+      transform:  translateY(-40%) scaleY(0.7) scaleX(0);
+    }
+    .header-letter{
+      transform: translateX(10px) translateY(-100%);
+      opacity: 0;
     }
   }
 }
@@ -95,14 +121,5 @@
         letter-spacing: 4px;
       }
     }
-  }
-}
-
-@keyframes headerTransition {
-  0%{
-    transform: translateY(-40%) scaleY(0.7) scaleX(0.6);
-  }
-  100%{
-    transform: translateY(-40%) scaleY(0.7) scaleX(0);
   }
 }

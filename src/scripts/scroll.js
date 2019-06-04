@@ -12,7 +12,7 @@ export default class {
   // test function ------------------------------------
 
   test(el) {
-    const frag = textToSpans(el, "jupi");
+    const frag = textToSpans(el, "header-letter");
     console.log(frag);
     el.textContent = "";
     el.appendChild(frag);
