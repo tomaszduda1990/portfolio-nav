@@ -17,6 +17,7 @@ export default class {
     this.photo.style.opacity = `${1 - y / 360}`;
   }
   scrollControl(e) {
+    console.log(e);
     this.headerPhoto(e.pageY);
     if (e.pageY < 150) {
       this.landing.classList.remove("landing--inactive");
