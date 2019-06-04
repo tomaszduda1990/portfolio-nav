@@ -15,6 +15,29 @@
       font-size: 10px;
       letter-spacing: 3px;
       font-weight: bold;
+      .social-letters{
+          display: inline-block;
+          transform: translateX(0) translateY(0) scale(1);
+          opacity: 1;
+          transition: all .7s cubic-bezier(.65,-0.27,.33,.68);
+          transition-delay: 0s;
+          &:nth-child(2){
+            transition-delay: 0.15s;
+          }
+          &:nth-child(3){
+            transition-delay: 0.2s;
+          }
+          &:nth-child(4){
+            transition-delay: 0.25s;
+          }
+          &:nth-child(5){
+            transition-delay: 0.3s;
+          }
+          &:nth-child(6){
+            transition-delay: 0.35s;
+          }
+        
+      }
     }
 
     .redLine{
@@ -28,6 +51,33 @@
       margin: 0;
       li{
         margin: 5px 0;
+        transform: scale(1);
+        transition: transform 1s cubic-bezier(.65,-0.27,.33,.68);
+        transition-delay: 0;
+        &:nth-child(2){
+          transition-delay: 0.25s;
+        }
+        &::nth-child(3){
+          transition-delay: 0.5s;
+        }
+      }
+    }
+  }
+}
+.landing--inactive{
+  .landing__social{
+    .redLine{
+      transform: scaleY(0);
+    }
+    .social-text{
+      .social-letters{
+        transform: translateX(10px) translateY(-100%) scale(0.85);
+        opacity: 0;
+      }
+    }
+    .social-icons{
+      li{
+        transform: scale(0.01);
       }
     }
   }

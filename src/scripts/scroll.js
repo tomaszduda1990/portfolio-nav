@@ -4,8 +4,10 @@ import throttle from "lodash.throttle";
 export default class {
   constructor() {
     this.landing = document.querySelector(".landing");
+    this.hello = this.landing.querySelector(".header-hello");
     this.name = this.landing.querySelector(".header-name");
     this.photo = this.landing.querySelector(".landing__photo");
+    this.socialText = this.landing.querySelector(".social-text");
 
     this.scrollControl = this.scrollControl.bind(this);
     this.init = this.init.bind(this);
@@ -24,6 +26,7 @@ export default class {
   }
   init() {
     letterTransition(this.name, "header-letter");
+    letterTransition(this.socialText, "social-letters");
     window.addEventListener("scroll", throttle(this.scrollControl, 100));
   }
 }

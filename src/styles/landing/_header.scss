@@ -13,16 +13,19 @@
     .header-small{
       font-size: 18px;
       opacity: 1;
-      transition: opacity ease-in-out 0.4s;
+      transform: translateY(0);
+      transition: all ease-in-out 0.7s;
       margin: 0;
     }
     .header-hello{
       font-weight: bold;
       display: flex;
       align-items: center;
+      transition-duration: 1s;
     } 
     .header-pos{
       text-transform: uppercase;
+
     }
     .header-name{
       display: inline-block;
@@ -48,7 +51,7 @@
       }
       .header-letter{
         display: inline-block;
-        transform: translateX(0) translateY(0);
+        transform: translateX(0) translateY(0) scale(1);
         opacity: 1;
         transition: all .7s cubic-bezier(.65,-0.27,.33,.68);
         transition-delay: 0s;
@@ -72,14 +75,21 @@
   }
 }
 .landing--inactive{
+  .redLine{
+    transform: scaleX(0);
+  }
   .header-name{
     &:after{
       transform:  translateY(-40%) scaleY(0.7) scaleX(0);
     }
     .header-letter{
-      transform: translateX(10px) translateY(-100%);
+      transform: translateX(10px) translateY(-100%) scale(0.85);
       opacity: 0;
     }
+  }
+  .header-small{
+    transform: translateY(-50%);
+    opacity: 0;
   }
 }
 
