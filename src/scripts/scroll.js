@@ -16,12 +16,12 @@ export default class {
     this.photo.style.transform = `translateY(${y}px)`;
     this.photo.style.opacity = `${1 - y / 360}`;
   }
-  scrollControl(e) {
-    console.log(e);
-    this.headerPhoto(e.pageY);
-    if (e.pageY < 150) {
+  scrollControl() {
+    const y = window.pageYOffset;
+    this.headerPhoto(y);
+    if (y < 150) {
       this.landing.classList.remove("landing--inactive");
-    } else if (e.pageY >= 150) {
+    } else if (y >= 100) {
       this.landing.classList.add("landing--inactive");
     }
   }

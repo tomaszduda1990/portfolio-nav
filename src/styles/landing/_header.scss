@@ -35,6 +35,7 @@
       font-weight: bold;
       letter-spacing: 2px;
       width: 230px;
+      white-space: nowrap;
       &:after{
         content: '';
         position: absolute;
