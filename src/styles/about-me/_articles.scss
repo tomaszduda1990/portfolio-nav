@@ -8,7 +8,14 @@
       display: grid;
       grid-template-columns: 100% 100% 100%;
       article{
-  
+        h3{
+          font-size: 28px;
+          color: red;
+          font-weight: bold;
+        }
+        p{
+          font-size: 16px;
+        }
       }
     }
     
