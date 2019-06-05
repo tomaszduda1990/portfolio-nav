@@ -1,0 +1,16 @@
+.about-me{
+  .articles{
+    grid-column: 2 / -1;
+    overflow: hidden;
+    &__container{
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 100% 100% 100%;
+      article{
+  
+      }
+    }
+    
+   }
+}

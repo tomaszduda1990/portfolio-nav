@@ -1,4 +1,7 @@
-
+@import './articles';
+@import './aside';
+@import './dots';
+@import './section-header';
 .about-me{
   height: 100vh;
   // background: grey;
@@ -6,4 +9,7 @@
   z-index: 10;
   color: #eaeaea;
   display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 90px 1fr 90px;
+ 
 }
