@@ -81,7 +81,7 @@
   }
   .header-name{
     &:after{
-      transform:  translateY(-40%) scaleY(0.7) scaleX(0);
+      transform:  translateY(-40%) scaleY(0.7) scaleX(0.0001);
     }
     .header-letter{
       transform: translateX(10px) translateY(-100%) scale(0.85);
