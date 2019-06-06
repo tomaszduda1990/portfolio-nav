@@ -1,4 +1,5 @@
 import { letterTransition } from "./helpers";
+import aboutMe from "./aboutMe";
 import throttle from "lodash.throttle";
 
 export default class {
@@ -8,6 +9,7 @@ export default class {
     this.name = this.landing.querySelector(".header-name");
     this.photo = this.landing.querySelector(".landing__photo");
     this.socialText = this.landing.querySelector(".social-text");
+    this.aboutMe = new aboutMe();
 
     this.scrollControl = this.scrollControl.bind(this);
     this.init = this.init.bind(this);
@@ -23,6 +25,7 @@ export default class {
       this.landing.classList.remove("landing--inactive");
     } else if (y >= 100) {
       this.landing.classList.add("landing--inactive");
+      this.aboutMe.init();
     }
   }
   init() {

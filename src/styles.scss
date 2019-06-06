@@ -15,6 +15,7 @@ body {
   margin: 0;
   background: #252525;
   overflow-x: hidden;
+  transition: background 0.3s ease-in;
 }
 .stop-scrolling {
   height: 100%;
