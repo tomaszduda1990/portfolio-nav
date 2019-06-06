@@ -15,3 +15,12 @@ export const letterTransition = (el, cls) => {
   el.textContent = "";
   el.appendChild(frag);
 };
+export const assignX = e => {
+  let x;
+  if (typeof e.changedTouches !== "undefined") {
+    x = e.changedTouches[0].pageX;
+  } else {
+    x = e.clientX;
+  }
+  return x;
+};
