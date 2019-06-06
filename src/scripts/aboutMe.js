@@ -1,4 +1,5 @@
 import throttle from "lodash.throttle";
+import { assignX } from "./helpers";
 export default class {
   constructor() {
     this.section = document.querySelector(".about-me");
@@ -10,6 +11,7 @@ export default class {
       start: 0,
       end: 0
     };
+    this.slideChageScope = 100;
     this.init = this.init.bind(this);
     this.moveContainer = this.moveContainer.bind(this);
     this.moveSideEffects = this.moveSideEffects.bind(this);
@@ -22,31 +24,20 @@ export default class {
   }
 
   startMoveHandler(e) {
-    console.log(e);
-    let x;
-    if (typeof e.changedTouches !== "undefined") {
-      x = e.changedTouches[0].pageX;
-    } else {
-      x = e.clientX;
-    }
-    console.log(x);
+    const x = assignX(e);
     this.isMoving = true;
     this.pos.start = x;
   }
   endMoveHandler(e) {
-    console.log(e);
-    let x;
-    if (typeof e.changedTouches !== "undefined") {
-      x = e.changedTouches[0].pageX;
-    } else {
-      x = e.clientX;
-    }
-    console.log(x);
+    const x = assignX(e);
     this.pos.end = x;
     const slideLength = this.pos.start - this.pos.end;
-    if (slideLength < 0 && Math.abs(slideLength) > 100) {
+    if (slideLength < 0 && Math.abs(slideLength) > this.slideChageScope) {
       this.currentSlide > 1 ? this.currentSlide-- : null;
-    } else if (slideLength > 0 && Math.abs(slideLength) > 100) {
+    } else if (
+      slideLength > 0 &&
+      Math.abs(slideLength) > this.slideChageScope
+    ) {
       this.currentSlide < 3 ? this.currentSlide++ : null;
     }
     this.moveContainer(this.currentSlide);
@@ -83,7 +74,8 @@ export default class {
   }
   moveArticleElementsHandler(e) {
     if (this.isMoving) {
-      console.log(e);
+      const x = assignX(e);
+      console.log(x);
     }
   }
   buttonHandler(e) {
@@ -107,6 +99,4 @@ export default class {
   }
 }
 
-// add on touch start / end and on mouse down / up events
-// make a global X variable which will controll x move of h3 and p
-// if X will be too big change currentSlide
+// apply moving p and H3 elements on mouse move

@@ -7,6 +7,10 @@
       display: grid;
       grid-template-columns: 100% 100% 100%;
       article{
+        -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
         h3{
           font-size: 28px;
           color: red;
