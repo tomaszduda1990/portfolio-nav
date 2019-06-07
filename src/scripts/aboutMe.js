@@ -1,11 +1,17 @@
 import throttle from "lodash.throttle";
-import { assignX } from "./helpers";
+import {
+  assignX,
+  setArticleCssProps,
+  currentSlideController,
+  artMovementController
+} from "./helpers";
 export default class {
   constructor() {
     this.section = document.querySelector(".about-me");
     this.container = this.section.querySelector(".articles__container");
     this.buttons = this.section.querySelectorAll(".dot");
     this.currentSlide = 1;
+    this.gridGap = 100;
     this.isMoving = false;
     this.pos = {
       start: 0,
@@ -24,27 +30,40 @@ export default class {
   }
 
   startMoveHandler(e) {
-    const x = assignX(e);
-    this.isMoving = true;
-    this.pos.start = x;
+    if (!this.isMoving) {
+      document.body.style.cursor = "pointer";
+      this.pos.start = assignX(e);
+      this.isMoving = true;
+    }
   }
   endMoveHandler(e) {
-    const x = assignX(e);
-    this.pos.end = x;
-    const slideLength = this.pos.start - this.pos.end;
-    if (slideLength < 0 && Math.abs(slideLength) > this.slideChageScope) {
-      this.currentSlide > 1 ? this.currentSlide-- : null;
-    } else if (
-      slideLength > 0 &&
-      Math.abs(slideLength) > this.slideChageScope
-    ) {
-      this.currentSlide < 3 ? this.currentSlide++ : null;
+    if (this.isMoving) {
+      this.pos.end = assignX(e);
+      const slideLength = this.pos.start - this.pos.end;
+      const currentArticle = this.container.querySelector(
+        `article[data-page="${this.currentSlide}"]`
+      );
+      setArticleCssProps(currentArticle.firstElementChild, 0, 0);
+      setArticleCssProps(currentArticle.lastElementChild, 0, 0);
+
+      this.currentSlide = currentSlideController(
+        slideLength,
+        this.slideChageScope,
+        this.currentSlide
+      );
+
+      this.moveContainer(this.currentSlide);
+      this.isMoving = false;
+      const newArticle = this.container.querySelector(
+        `article[data-page="${this.currentSlide}"]`
+      );
+      setArticleCssProps(newArticle.firstElementChild, 0, 1);
+      setArticleCssProps(newArticle.lastElementChild, 0, 1);
+      document.body.style.cursor = "default";
     }
-    this.moveContainer(this.currentSlide);
-    this.isMoving = false;
   }
   moveContainer(slide) {
-    const artWidth = this.container.querySelector("article").clientWidth;
+    const artWidth = this.container.querySelector("article").clientWidth * 2;
     this.moveSideEffects(slide);
     switch (slide) {
       case 1:
@@ -76,14 +95,17 @@ export default class {
     if (this.isMoving) {
       const x = assignX(e);
       const swipeLength = this.pos.start - x;
-      if (swipeLength < 0 && Math.abs(swipeLength) < this.slideChageScope) {
-        console.log("move p and h3 right");
-      } else if (
-        swipeLength > 0 &&
-        Math.abs(swipeLength) < this.slideChageScope
-      ) {
-        console.log("move p and h3 left");
-      }
+      const currentArticle = this.container.querySelector(
+        `article[data-page="${this.currentSlide}"]`
+      );
+
+      artMovementController(
+        swipeLength,
+        this.slideChageScope,
+        currentArticle,
+        this.endMoveHandler,
+        e
+      );
     }
   }
   buttonHandler(e) {
@@ -102,9 +124,13 @@ export default class {
     this.section.addEventListener("mouseup", this.endMoveHandler);
     this.section.addEventListener(
       "mousemove",
-      throttle(this.moveArticleElementsHandler, 250)
+      throttle(this.moveArticleElementsHandler, 350)
     );
     // touch events
+    this.section.addEventListener(
+      "touchmove",
+      throttle(this.moveArticleElementsHandler, 350)
+    );
     this.section.addEventListener("touchstart", this.startMoveHandler);
     this.section.addEventListener("touchend", this.endMoveHandler);
   }

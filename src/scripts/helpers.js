@@ -24,3 +24,36 @@ export const assignX = e => {
   }
   return x;
 };
+export const setArticleCssProps = (element, x, opacity) => {
+  element.style.transform = `translateX(${x}px)`;
+  element.style.opacity = opacity;
+};
+export const currentSlideController = (
+  slideLength,
+  slideChageScope,
+  currentSlide
+) => {
+  if (slideLength < 0 && Math.abs(slideLength) > slideChageScope) {
+    currentSlide > 1 ? currentSlide-- : null;
+  } else if (slideLength > 0 && Math.abs(slideLength) > slideChageScope) {
+    currentSlide < 3 ? currentSlide++ : null;
+  }
+  return currentSlide;
+};
+export const artMovementController = (
+  swipeLength,
+  slideChageScope,
+  currentArticle,
+  endMoveHandler,
+  e
+) => {
+  if (swipeLength < 0 && Math.abs(swipeLength) < slideChageScope) {
+    setArticleCssProps(currentArticle.firstElementChild, 100, 0.75);
+    setArticleCssProps(currentArticle.lastElementChild, 50, 0.75);
+  } else if (swipeLength > 0 && Math.abs(swipeLength) < slideChageScope) {
+    setArticleCssProps(currentArticle.firstElementChild, -100, 0.75);
+    setArticleCssProps(currentArticle.lastElementChild, -50, 0.75);
+  } else {
+    endMoveHandler(e);
+  }
+};

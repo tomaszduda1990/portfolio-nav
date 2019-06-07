@@ -1,22 +1,28 @@
 .about-me{
   .articles{
     grid-column: 2 / -1;
-    overflow: hidden;
+   // overflow: hidden;
     &__container{
       height: 100%;
       display: grid;
       grid-template-columns: 100% 100% 100%;
+      grid-gap: 100%;
+      transition: 0.4s ease-in-out transform;
       article{
         -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
-  user-select: none;
+        -moz-user-select: none;    
+        -ms-user-select: none;      
+        user-select: none;
+        min-width: 0;
+        min-height: 0;
         h3{
           font-size: 28px;
           color: red;
           font-weight: bold;
+          transition: all 0.4s ease-in-out;
         }
         p{
+          transition: all 0.6s ease-in-out;
           font-size: 16px;
         }
       }
