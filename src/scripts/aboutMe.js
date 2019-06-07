@@ -112,6 +112,11 @@ export default class {
     const slide = parseInt(e.target.dataset.page);
     this.currentSlide = slide;
     this.moveContainer(slide);
+    const currentArticle = this.container.querySelector(
+      `article[data-page="${this.currentSlide}"]`
+    );
+    setArticleCssProps(currentArticle.firstElementChild, 0, 1);
+    setArticleCssProps(currentArticle.lastElementChild, 0, 1);
   }
 
   init() {
@@ -136,4 +141,6 @@ export default class {
   }
 }
 
-// apply moving p and H3 elements on mouse move
+// apply mediaqueries and enter
+// leave animations, ewentually fix issue with currentIndex
+// when scroll out

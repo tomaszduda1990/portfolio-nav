@@ -1,7 +1,6 @@
 .about-me{
   .articles{
     grid-column: 2 / -1;
-   // overflow: hidden;
     &__container{
       height: 100%;
       display: grid;
@@ -29,4 +28,22 @@
     }
     
    }
+}
+@media screen and (min-width: 450px){
+  .about-me{
+    .articles{
+      &__container{
+        article{
+          h3{
+            font-size: 32px;
+            letter-spacing: 2px;
+          }
+          p{
+            line-height: 1.5;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
 }
