@@ -75,7 +75,15 @@ export default class {
   moveArticleElementsHandler(e) {
     if (this.isMoving) {
       const x = assignX(e);
-      console.log(x);
+      const swipeLength = this.pos.start - x;
+      if (swipeLength < 0 && Math.abs(swipeLength) < this.slideChageScope) {
+        console.log("move p and h3 right");
+      } else if (
+        swipeLength > 0 &&
+        Math.abs(swipeLength) < this.slideChageScope
+      ) {
+        console.log("move p and h3 left");
+      }
     }
   }
   buttonHandler(e) {
@@ -92,7 +100,10 @@ export default class {
     // mouse events
     this.section.addEventListener("mousedown", this.startMoveHandler);
     this.section.addEventListener("mouseup", this.endMoveHandler);
-    this.section.addEventListener("mousemove", this.moveArticleElementsHandler);
+    this.section.addEventListener(
+      "mousemove",
+      throttle(this.moveArticleElementsHandler, 250)
+    );
     // touch events
     this.section.addEventListener("touchstart", this.startMoveHandler);
     this.section.addEventListener("touchend", this.endMoveHandler);
