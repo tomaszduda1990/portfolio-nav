@@ -3,8 +3,7 @@ import {
   assignX,
   setArticleCssProps,
   currentSlideController,
-  artMovementController,
-  letterTransition
+  artMovementController
 } from "./helpers";
 export default class {
   constructor() {
@@ -123,7 +122,6 @@ export default class {
 
   init() {
     this.section.classList.remove("about-me--inactive");
-    letterTransition(this.header, "letter");
     // button events
     this.buttons.forEach(btn =>
       btn.addEventListener("click", this.buttonHandler)
@@ -139,8 +137,8 @@ export default class {
   }
   exit() {
     this.currentSlide = 1;
-    this.moveContainer(this.currentSlide);
     this.section.classList.add("about-me--inactive");
+    this.moveContainer(this.currentSlide);
     // button events
     this.buttons.forEach(btn =>
       btn.removeEventListener("click", this.buttonHandler)
