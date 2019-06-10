@@ -27,6 +27,7 @@ export default class {
       this
     );
     this.endMoveHandler = this.endMoveHandler.bind(this);
+    this.exit = this.exit.bind(this);
   }
 
   startMoveHandler(e) {
@@ -139,8 +140,23 @@ export default class {
     this.section.addEventListener("touchstart", this.startMoveHandler);
     this.section.addEventListener("touchend", this.endMoveHandler);
   }
+  exit() {
+    document.body.style.background = "#252525";
+    // button events
+    this.buttons.forEach(btn =>
+      btn.removeEventListener("click", this.buttonHandler)
+    );
+    // mouse events
+    this.section.removeEventListener("mousedown", this.startMoveHandler);
+    this.section.removeEventListener("mouseup", this.endMoveHandler);
+    this.section.removeEventListener("mousemove", throttle);
+    // touch events
+    this.section.removeEventListener("touchmove", throttle);
+    this.section.removeEventListener("touchstart", this.startMoveHandler);
+    this.section.removeEventListener("touchend", this.endMoveHandler);
+  }
 }
 
 // apply mediaqueries and enter
-// leave animations, ewentually fix issue with currentIndex
+// leave animations, eventually fix issue with currentIndex
 // when scroll out

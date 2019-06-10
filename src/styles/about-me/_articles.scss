@@ -1,6 +1,7 @@
 .about-me{
   .articles{
     grid-column: 2 / -1;
+    max-width: 530px;
     &__container{
       height: 100%;
       display: grid;

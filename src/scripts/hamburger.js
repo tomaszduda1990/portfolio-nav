@@ -9,7 +9,7 @@ export default class {
   toggleMenu() {
     this.button.classList.toggle("hamburger--active");
     this.links.classList.toggle("links--active");
-    if (screen.width < 900) {
+    if (window.screen.width < 900) {
       this.body.classList.toggle("stop-scrolling");
     }
   }

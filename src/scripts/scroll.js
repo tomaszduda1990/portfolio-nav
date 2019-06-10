@@ -23,7 +23,7 @@ export default class {
     this.headerPhoto(y);
     if (y < 150) {
       this.landing.classList.remove("landing--inactive");
-      document.body.style.background = "#252525";
+      this.aboutMe.exit();
     } else if (y >= 100) {
       this.landing.classList.add("landing--inactive");
       this.aboutMe.init();
