@@ -10,23 +10,33 @@ export default class {
     this.photo = this.landing.querySelector(".landing__photo");
     this.socialText = this.landing.querySelector(".social-text");
     this.aboutMe = new aboutMe();
-
+    this.borders = [];
     this.scrollControl = this.scrollControl.bind(this);
     this.init = this.init.bind(this);
   }
   headerPhoto(y) {
-    this.photo.style.transform = `translateY(${y}px)`;
-    this.photo.style.opacity = `${1 - y / 360}`;
+    if (parseInt(this.photo.style.opacity) > 0) {
+      this.photo.style.transform = `translateY(${y}px)`;
+      this.photo.style.opacity = `${1 - y / 360}`;
+    }
   }
   scrollControl() {
     const y = window.pageYOffset;
     this.headerPhoto(y);
-    if (y < 150) {
+    const borders = [];
+    document.querySelectorAll("section").forEach(section => {
+      borders.push(section.offsetTop);
+    });
+    this.borders = borders;
+    if (y < this.borders[0] + 100) {
       this.landing.classList.remove("landing--inactive");
       this.aboutMe.exit();
-    } else if (y >= 100) {
+    } else if (y >= this.borders[0] + 100 && y < this.borders[1] - 100) {
       this.landing.classList.add("landing--inactive");
+    } else if (y > this.borders[1] - 100 && y < this.borders[1]) {
       this.aboutMe.init();
+    } else if (y > this.borders[1]) {
+      this.aboutMe.exit();
     }
   }
   init() {

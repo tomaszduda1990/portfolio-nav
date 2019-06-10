@@ -11,6 +11,55 @@
       display: inline-block;
       letter-spacing: 2px;
       font-size: 18px;
+      .letter{
+        display: inline-block;
+        transform: translateX(0px) translateY(0px) scale(1);
+        opacity: 1;
+        transition: all ease-in-out 0.7s;
+        transition-delay: 0s;
+        min-width: 5px;
+        &:nth-child(2){
+          transition-delay: 0.15s;
+        }
+        &:nth-child(3){
+          transition-delay: 0.2s;
+        }
+        &:nth-child(4){
+          transition-delay: 0.25s;
+        }
+        &:nth-child(5){
+          transition-delay: 0.3s;
+        }
+        &:nth-child(6){
+          transition-delay: 0.35s;
+        }
+        &:nth-child(7){
+          transition-delay: 0.4s;
+        }
+        &:nth-child(8){
+          transition-delay: 0.45s;
+        }
+      }
+    }
+    .redLine{
+      transform: scaleX(1);
+      opacity: 1;
+      transition: all ease-in-out 0.7s;
+      transition-delay: 0.45s;
+    }
+  }
+}
+.about-me--inactive{
+  .section-header{
+    h2{
+      .letter{
+        transform: translateX(15px) translateY(-150%) scale(0.85);
+        opacity: 0;
+      }
+    }
+    .redLine{
+      opacity: 0;
+      transform: scaleX(0.1);
     }
   }
 }

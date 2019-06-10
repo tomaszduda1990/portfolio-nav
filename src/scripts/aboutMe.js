@@ -3,13 +3,15 @@ import {
   assignX,
   setArticleCssProps,
   currentSlideController,
-  artMovementController
+  artMovementController,
+  letterTransition
 } from "./helpers";
 export default class {
   constructor() {
     this.section = document.querySelector(".about-me");
     this.container = this.section.querySelector(".articles__container");
     this.buttons = this.section.querySelectorAll(".dot");
+    this.header = this.section.querySelector("h2");
     this.currentSlide = 1;
     this.gridGap = 100;
     this.isMoving = false;
@@ -33,7 +35,6 @@ export default class {
 
   startMoveHandler(e) {
     if (!this.isMoving) {
-      document.body.style.cursor = "pointer";
       this.pos.start = assignX(e);
       this.isMoving = true;
     }
@@ -61,7 +62,6 @@ export default class {
       );
       setArticleCssProps(newArticle.firstElementChild, 0, 1);
       setArticleCssProps(newArticle.lastElementChild, 0, 1);
-      document.body.style.cursor = "default";
     }
   }
   moveContainer(slide) {
@@ -122,6 +122,8 @@ export default class {
   }
 
   init() {
+    this.section.classList.remove("about-me--inactive");
+    letterTransition(this.header, "letter");
     // button events
     this.buttons.forEach(btn =>
       btn.addEventListener("click", this.buttonHandler)
@@ -136,7 +138,9 @@ export default class {
     this.section.addEventListener("touchend", this.endMoveHandler);
   }
   exit() {
-    document.body.style.background = "#252525";
+    this.currentSlide = 1;
+    this.moveContainer(this.currentSlide);
+    this.section.classList.add("about-me--inactive");
     // button events
     this.buttons.forEach(btn =>
       btn.removeEventListener("click", this.buttonHandler)
