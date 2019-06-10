@@ -26,6 +26,7 @@ export default class {
     this.moveArticleElementsHandler = this.moveArticleElementsHandler.bind(
       this
     );
+    this.throttledMoveArticle = throttle(this.moveArticleElementsHandler, 350);
     this.endMoveHandler = this.endMoveHandler.bind(this);
     this.exit = this.exit.bind(this);
   }
@@ -128,15 +129,9 @@ export default class {
     // mouse events
     this.section.addEventListener("mousedown", this.startMoveHandler);
     this.section.addEventListener("mouseup", this.endMoveHandler);
-    this.section.addEventListener(
-      "mousemove",
-      throttle(this.moveArticleElementsHandler, 350)
-    );
+    this.section.addEventListener("mousemove", this.throttledMoveArticle);
     // touch events
-    this.section.addEventListener(
-      "touchmove",
-      throttle(this.moveArticleElementsHandler, 350)
-    );
+    this.section.addEventListener("touchmove", this.throttledMoveArticle);
     this.section.addEventListener("touchstart", this.startMoveHandler);
     this.section.addEventListener("touchend", this.endMoveHandler);
   }
@@ -149,9 +144,9 @@ export default class {
     // mouse events
     this.section.removeEventListener("mousedown", this.startMoveHandler);
     this.section.removeEventListener("mouseup", this.endMoveHandler);
-    this.section.removeEventListener("mousemove", throttle);
+    this.section.removeEventListener("mousemove", this.throttledMoveArticle);
     // touch events
-    this.section.removeEventListener("touchmove", throttle);
+    this.section.removeEventListener("touchmove", this.throttledMoveArticle);
     this.section.removeEventListener("touchstart", this.startMoveHandler);
     this.section.removeEventListener("touchend", this.endMoveHandler);
   }
