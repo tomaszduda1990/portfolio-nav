@@ -10,23 +10,27 @@ const textToSpans = (el, clName) => {
   spans.forEach(el => frag.appendChild(el));
   return frag;
 };
-const createSpanLine = (el, clName, lWidth) => {
+
+//created experimental function
+export const createSpanLine = (el, clName, lWidth) => {
   const frag = document.createDocumentFragment();
-  const wordsArr = el.textContent.split(" ");
-  const lineArr = [];
-  while (wordsArr.length > 0) {
-    lineArr.push(wordsArr.splice(0, lWidth));
+  const text = el.textContent.match(/\b(\w+\W+)/g);
+  console.log(text);
+  el.textContent = "";
+  const spliced = [];
+  while (text.length > 0) {
+    spliced.push(text.splice(0, lWidth));
   }
-  const spans = lineArr.map(line => {
+  const spans = spliced.map(span => {
     const spn = document.createElement("span");
+    spn.textContent = span.join(" ");
     spn.classList.add(clName);
-    spn.textContent = line.join(" ");
     return spn;
   });
-  spans.forEach(line => {
-    frag.push(line);
+  spans.forEach(el => {
+    frag.appendChild(el);
   });
-  return frag;
+  el.appendChild(frag);
 };
 export const letterTransition = (el, cls) => {
   const frag = textToSpans(el, cls);

@@ -4,7 +4,7 @@
 .about-me{
   height: 100vh;
   min-height: 600px;
-  padding: 90px 45px 0 45px;
+  padding: 90px 45px;
   z-index: 10;
   color: #eaeaea;
   overflow-x: hidden;
@@ -12,4 +12,5 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 90px minmax(150px, 450px) 90px; 
   align-items: center;
+
 }

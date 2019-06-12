@@ -138,6 +138,12 @@ export default class {
   exit() {
     this.currentSlide = 1;
     this.section.classList.add("about-me--inactive");
+
+    const currentArticle = this.container.querySelector(
+      `article[data-page="${this.currentSlide}"]`
+    );
+    setArticleCssProps(currentArticle.firstElementChild, 0, 1);
+    setArticleCssProps(currentArticle.lastElementChild, 0, 1);
     this.moveContainer(this.currentSlide);
     // button events
     this.buttons.forEach(btn =>

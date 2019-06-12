@@ -1,4 +1,4 @@
-import { letterTransition } from "./helpers";
+import { letterTransition, createSpanLine } from "./helpers";
 import aboutMe from "./aboutMe";
 import throttle from "lodash.throttle";
 
@@ -10,6 +10,7 @@ export default class {
     this.photo = this.landing.querySelector(".landing__photo");
     this.socialText = this.landing.querySelector(".social-text");
     this.aboutMe = new aboutMe();
+    this.articles = this.aboutMe.container.querySelectorAll(".articles p");
     this.borders = [];
     this.scrollControl = this.scrollControl.bind(this);
     this.init = this.init.bind(this);
@@ -40,6 +41,7 @@ export default class {
     }
   }
   init() {
+    this.articles.forEach(art => createSpanLine(art, "article-line", 6));
     letterTransition(this.name, "header-letter");
     letterTransition(this.socialText, "social-letters");
     letterTransition(this.aboutMe.header, "letter");
