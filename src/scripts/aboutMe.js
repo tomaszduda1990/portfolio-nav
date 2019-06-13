@@ -11,6 +11,8 @@ export default class {
     this.container = this.section.querySelector(".articles__container");
     this.buttons = this.section.querySelectorAll(".dot");
     this.header = this.section.querySelector("h2");
+    this.articles = this.container.querySelectorAll("article p");
+    this.articleHeaders = this.container.querySelectorAll("article h3");
     this.currentSlide = 1;
     this.gridGap = 100;
     this.isMoving = false;

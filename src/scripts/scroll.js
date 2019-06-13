@@ -10,15 +10,17 @@ export default class {
     this.photo = this.landing.querySelector(".landing__photo");
     this.socialText = this.landing.querySelector(".social-text");
     this.aboutMe = new aboutMe();
-    this.articles = this.aboutMe.container.querySelectorAll(".articles p");
+
     this.borders = [];
     this.scrollControl = this.scrollControl.bind(this);
     this.init = this.init.bind(this);
   }
   headerPhoto(y) {
-    if (1 - y / 360 > 0) {
+    if (1 - y / 550 > 0) {
       this.photo.style.transform = `translateY(${y}px)`;
-      this.photo.style.opacity = `${1 - y / 360}`;
+      this.photo.style.opacity = `${1 - y / 550}`;
+    } else {
+      this.photo.style.opacity = 0;
     }
   }
   scrollControl() {
@@ -41,7 +43,12 @@ export default class {
     }
   }
   init() {
-    this.articles.forEach(art => createSpanLine(art, "article-line", 6));
+    this.aboutMe.articles.forEach(art =>
+      createSpanLine(art, "article-line", 6)
+    );
+    this.aboutMe.articleHeaders.forEach(header =>
+      createSpanLine(header, "article-header", 10)
+    );
     letterTransition(this.name, "header-letter");
     letterTransition(this.socialText, "social-letters");
     letterTransition(this.aboutMe.header, "letter");

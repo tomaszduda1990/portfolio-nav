@@ -46,6 +46,15 @@ export const assignX = e => {
   }
   return x;
 };
+export const assignY = e => {
+  let y;
+  if (typeof e.changedTouches !== "undefined") {
+    y = e.changedTouches[0].pageY;
+  } else {
+    y = e.clientY;
+  }
+  return y;
+};
 export const setArticleCssProps = (element, x, opacity) => {
   element.style.transform = `translateX(${x}px)`;
   element.style.opacity = opacity;
@@ -69,10 +78,10 @@ export const artMovementController = (
   endMoveHandler,
   e
 ) => {
-  if (swipeLength < 0 && Math.abs(swipeLength) < slideChageScope) {
+  if (swipeLength < -5 && Math.abs(swipeLength) < slideChageScope) {
     setArticleCssProps(currentArticle.firstElementChild, 100, 0.75);
     setArticleCssProps(currentArticle.lastElementChild, 50, 0.75);
-  } else if (swipeLength > 0 && Math.abs(swipeLength) < slideChageScope) {
+  } else if (swipeLength > 5 && Math.abs(swipeLength) < slideChageScope) {
     setArticleCssProps(currentArticle.firstElementChild, -100, 0.75);
     setArticleCssProps(currentArticle.lastElementChild, -50, 0.75);
   } else {

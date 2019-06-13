@@ -1,9 +1,9 @@
 .about-me{
   .about-me__dots{
     grid-column: 2 / -1;
-    overflow: hidden;
     padding-top: 20px;
     .dot{
+      display: inline-block;
       background: #eaeaea;
       margin-right: 30px;
       height: 20px;
