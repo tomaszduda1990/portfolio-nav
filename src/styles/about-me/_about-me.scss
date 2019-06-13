@@ -1,16 +1,28 @@
 @import './articles';
 @import './dots';
 @import './section-header';
-.about-me{
+.about-me {
   position: relative;
   height: 100vh;
   min-height: 600px;
-  padding: 90px 45px;
-  z-index: 10;
-  color: #eaeaea;
-  overflow-x: hidden;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 90px minmax(150px, 450px) 90px; 
-  align-items: center;
+  min-width: 100%;  
+  main{
+    padding: 90px 45px;
+    z-index: 10;
+    color: #eaeaea;
+    overflow-x: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 90px minmax(150px, 450px) 90px; 
+    align-items: center;
+  }
+  #wave{
+    position: absolute;
+    fill: #252525;
+    top: 100%;
+    width: 100%;
+    z-index: 1;
+  }
 }
