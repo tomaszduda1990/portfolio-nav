@@ -8,19 +8,33 @@
           position: absolute;
           top: 0;
           left: 0;
-          transform: translateX(-50%) rotate(45deg);
-          transform-origin: center;
+          transform: translateX(-10px) rotate(45deg);
+          transform-origin: 0;
           width: 100%; 
           max-width: 200px;
           height: 2px;
+         }
+         .icon{
+           position: absolute;
+           display: inline-block;
+           height: 50px;
+           width: 50px;
+           border-radius: 50%;
+           top: 0;
+           left: 50%;
+           transform: translateX(0) translateY(-50%);
+           background: #131517;
          }
        }
        &:nth-child(even){
          .logo-box{
            .redLine{
-             transform: rotate(-45deg) translateX(25%);
-             
-           }
+             transform: translateX(-10px) rotate(-45deg);
+             transform-origin: 100%;
+          }
+          .icon{
+             transform: translateX(-100%) translateY(-50%);
+          }
          }
        }
       } 
