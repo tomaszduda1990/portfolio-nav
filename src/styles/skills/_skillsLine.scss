@@ -1,0 +1,29 @@
+.skills{
+  main{
+    ul{
+      li{
+       .logo-box{
+         position: relative;
+         .redLine{
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateX(-50%) rotate(45deg);
+          transform-origin: center;
+          width: 100%; 
+          max-width: 200px;
+          height: 2px;
+         }
+       }
+       &:nth-child(even){
+         .logo-box{
+           .redLine{
+             transform: rotate(-45deg) translateX(25%);
+             
+           }
+         }
+       }
+      } 
+    }
+  }
+}

@@ -1,9 +1,12 @@
+@import './skillsList';
+@import './skillDesc';
+@import './skillsLine';
 .skills{
-  height: 100vh;
   min-height: 650px;
-  background: url('https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  width: 100%;
+  background: #eaeaea;
+  padding: 0;
+  main{
+    padding: 180px 10px;
+  }
 }

@@ -2,7 +2,9 @@
   &__photo{
     display: none;
     flex: 1;
-    
+    &::after{
+      content: "";
+    }
     img{
       height: auto;
       min-width: 100%;
@@ -12,7 +14,7 @@
 }
 .landing--inactive{
   .landing__photo{
-    &:after{
+    &::after{
       animation: none;
     }
   }

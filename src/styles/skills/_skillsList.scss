@@ -1,0 +1,23 @@
+.skills{
+  main{
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li{
+        display: flex;
+        margin-top: 100px;
+        .skill{
+            flex: 2;
+        }
+        .logo-box{
+          flex: 1;
+        }  
+        
+        &:nth-child(even){
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}
