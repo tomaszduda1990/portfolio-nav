@@ -1,5 +1,6 @@
 import { letterTransition, createSpanLine } from "./helpers";
-import aboutMe from "./aboutMe";
+import AboutMe from "./aboutMe";
+import Skills from "./skills";
 import throttle from "lodash.throttle";
 
 export default class {
@@ -9,7 +10,8 @@ export default class {
     this.name = this.landing.querySelector(".header-name");
     this.photo = this.landing.querySelector(".landing__photo");
     this.socialText = this.landing.querySelector(".social-text");
-    this.aboutMe = new aboutMe();
+    this.aboutMe = new AboutMe();
+    this.skills = new Skills();
 
     this.borders = [];
     this.scrollControl = this.scrollControl.bind(this);
@@ -26,6 +28,7 @@ export default class {
   scrollControl() {
     const y = window.pageYOffset;
     this.headerPhoto(y);
+    this.skills.unveilLi(y);
     const borders = [];
     document.querySelectorAll("section").forEach(section => {
       borders.push(section.offsetTop);
@@ -49,6 +52,12 @@ export default class {
     this.aboutMe.articleHeaders.forEach(header =>
       createSpanLine(header, "article-header", 10)
     );
+    // investigate this issue  ---------------------------
+    console.log(this.skills.ps);
+    this.skills.ps.forEach(p =>
+      console.log(p.textContent.match(/\b(\w+\W+)/g))
+    );
+    // investigate this issue  ---------------------------
     letterTransition(this.name, "header-letter");
     letterTransition(this.socialText, "social-letters");
     letterTransition(this.aboutMe.header, "letter");

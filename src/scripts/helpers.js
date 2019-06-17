@@ -15,12 +15,13 @@ const textToSpans = (el, clName) => {
 export const createSpanLine = (el, clName, lWidth) => {
   const frag = document.createDocumentFragment();
   const text = el.textContent.match(/\b(\w+\W+)/g);
-  console.log(text);
   el.textContent = "";
   const spliced = [];
+  // investigate this issue ! ! !
   while (text.length > 0) {
     spliced.push(text.splice(0, lWidth));
   }
+  // investigate !  ! !
   const spans = spliced.map(span => {
     const spn = document.createElement("span");
     spn.textContent = span.join(" ");
