@@ -35,7 +35,6 @@
       font-weight: bold;
       letter-spacing: 2px;
       width: 230px;
-      white-space: nowrap;
       &:after{
         content: '';
         position: absolute;
@@ -44,6 +43,7 @@
         top: 0;
         right: 0;
         transform: translateY(-40%) scaleX(0.6) scaleY(0.7);
+        will-change: transform;
         transform-origin: 100%;
         transition: transform 1s cubic-bezier(.65,-0.27,.33,.68);
         // change this red to something nicer
@@ -53,6 +53,7 @@
       .header-letter{
         display: inline-block;
         transform: translateX(0) translateY(0) scale(1);
+        will-change: transform;
         opacity: 1;
         transition: all .7s cubic-bezier(.65,-0.27,.33,.68);
         transition-delay: 0s;

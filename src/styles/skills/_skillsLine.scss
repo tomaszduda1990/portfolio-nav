@@ -4,19 +4,6 @@
       li{
        .logo-box{
          position: relative;
-         h3{
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: rotate(45deg) translateX(25%) translateY(150%);
-            text-align: center;
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin-top: 0;
-            color: #fff;
-          
-        }
          .redLine{
           position: absolute;
           top: 0;
@@ -30,8 +17,6 @@
          .icon{
            position: absolute;
            display: inline-block;
-          //  height: 50px;
-          //  width: 50px;
            border-radius: 50%;
            top: 0;
            left: 50%;
@@ -45,7 +30,7 @@
              transform-origin: 100%;
           }
           .icon{
-             transform: translateX(-100%) translateY(-50%);
+             transform: translateX(-100%) translateY(-25%);
           }
          }
        }
